@@ -9,4 +9,6 @@ sqlalchemy
 pgvector
 psycopg[binary]
 pypdf
+googlesearch-python 
+pycountry
 streamlit
