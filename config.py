@@ -11,3 +11,9 @@ WEB_SEARCH_AGENT = {
     "add_refrence": True,
     "prevent_hallucinations": True,
 }
+WEBSITE_KB = {
+    "urls": ["https://docs.phidata.com/introduction"],
+    "max_links": 10,
+    "table_name": "website_documents",
+    "db_url": "postgresql+psycopg://ai:ai@localhost:5532/ai",
+}

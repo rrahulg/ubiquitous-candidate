@@ -12,3 +12,4 @@ pypdf
 googlesearch-python 
 pycountry
 streamlit
+bs4
