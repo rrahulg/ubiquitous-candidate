@@ -38,3 +38,6 @@ class WebKB:
     def show_urls(self):
         logging.info(f"URLs in Web Knowledge Base: {self.urls}")
         return self.urls
+    
+    def get_kb(self):
+        return self.knowledge_base

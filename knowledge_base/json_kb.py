@@ -31,13 +31,5 @@ class JsonKB:
         logging.info(f"Paths in JSON Knowledge Base: {self.path}")
         return self.path
 
-
-if __name__ == "__main__":
-    config = {
-        'path': Path('./data/resume.json'),
-        'table_name': 'ai.json_documents',
-        'db_url': 'postgresql+psycopg://ai:ai@localhost:5532/ai'
-    }
-    
-    kb = JsonKB(config)
-    print(kb.show_paths())
+    def get_kb(self):
+        return self.knowledge_base
