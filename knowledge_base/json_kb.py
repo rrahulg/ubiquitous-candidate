@@ -9,7 +9,7 @@ from tools.logger import logging
 
 class JsonKB:
     def __init__(self, KB_config: dict):
-        self.path = KB_config.get("path", list(Path("data").glob("*json")))
+        self.path = KB_config.get("path", "/data/kb.json")
         self.table_name = KB_config.get("table_name", "ai.json_documents")
         self.db_url = KB_config.get(
             "db_url", "postgresql+psycopg://ai:ai@localhost:5532/ai"
@@ -32,4 +32,5 @@ class JsonKB:
         return self.path
 
     def get_kb(self):
+        logging.info("Returning JSON Knowledge Base")
         return self.knowledge_base
