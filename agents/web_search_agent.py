@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 
 from dotenv import load_dotenv
@@ -26,7 +27,7 @@ class WebSearchAgent:
         self.markdown = agent_config.get("markdown", True)
         self.prevent_hallucinations = agent_config.get("prevent_hallucinations", True)
         self.add_references = agent_config.get("add_references", True)
-        self.model = Groq(id="Gemma2-9b-it", api_key=groq_api)
+        self.model = Groq(id="DeepSeek-R1-Distill-Llama-70B", api_key=groq_api)
 
         self.agent = Agent(
             name=self.name,
@@ -51,19 +52,12 @@ class WebSearchAgent:
         logging.info(f"🔍 Searching for: {query}")
         try:
             response = self.agent.run(query)
-            if hasattr(response, "content"):
-                result = response.content.strip()
-                logging.info(f"✅ Search Result: {result}")
-                return result
-            else:
-                logging.info('Search doesnt have content')
-                logging.info(f'Search result:{response}')
-                return response
+            # cleaned_response = re.sub(
+            #     r"<think>.?</think>\n", "", response.content, flags=re.DOTALL
+            # ).strip()
+            # logging.info("Query result: ", cleaned_response)
+            return response
         except Exception as e:
             error_message = f"Error during search: {str(e)}"
             logging.error(error_message)
             raise CustomException("Search operation failed", sys)
-
-
-
-

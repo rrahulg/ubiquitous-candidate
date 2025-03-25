@@ -43,7 +43,7 @@ WEBSITE_KB = {
 }
 import os
 JSON_KB = {
-    'path': os.getcwd()+'\data\data.json',
+    'path': os.getcwd()+r'\data\data.json',
     'table_name': 'ai.json_documents',
     'db_url': 'postgresql+psycopg://ai:ai@localhost:5532/ai',
 }
