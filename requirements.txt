@@ -13,3 +13,4 @@ googlesearch-python
 pycountry
 streamlit
 bs4
+fitz
