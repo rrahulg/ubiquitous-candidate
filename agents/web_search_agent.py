@@ -52,10 +52,10 @@ class WebSearchAgent:
         logging.info(f"🔍 Searching for: {query}")
         try:
             response = self.agent.run(query)
-            # cleaned_response = re.sub(
-            #     r"<think>.?</think>\n", "", response.content, flags=re.DOTALL
-            # ).strip()
-            # logging.info("Query result: ", cleaned_response)
+            cleaned_response = re.sub(
+                r"<think>.?</think>\n", "", response.content, flags=re.DOTALL
+            ).strip()
+            logging.info("Query result: ", cleaned_response)
             return response
         except Exception as e:
             error_message = f"Error during search: {str(e)}"

@@ -42,8 +42,21 @@ WEBSITE_KB = {
     "db_url": "postgresql+psycopg://ai:ai@localhost:5532/ai",
 }
 import os
+
 JSON_KB = {
-    'path': os.getcwd()+r'\data\data.json',
-    'table_name': 'ai.json_documents',
-    'db_url': 'postgresql+psycopg://ai:ai@localhost:5532/ai',
+    "path": os.getcwd() + r"\data\data.json",
+    "table_name": "ai.json_documents",
+    "db_url": "postgresql+psycopg://ai:ai@localhost:5532/ai",
+}
+DATAGEN = {
+    "data_path": os.getcwd() + r"\data\resumes",
+    "output_path": os.getcwd() + r"\data\data.json",
+    "system_prompt": "You are a data generator. You will be given a set of resumes and you need to generate a json file from it.",
+    "model": "gemini-2.0-pro-exp-02-05",
+    "generative_config": {
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 64,
+        "max_output_tokens": 8192,
+    },
 }
